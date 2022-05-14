@@ -44,13 +44,14 @@ def handle_message(event):
     s = '給我去洗頭'
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=reply))
+        TextSendMessage(text = reply))
 
 def message_reply(msg, reply):
     if msg in ['dice']:
         reply = random.randint(1,6)
     else:
         reply = '請再說一次'
+    reply = str(reply)
     return reply
 
 
