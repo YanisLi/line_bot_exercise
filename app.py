@@ -41,18 +41,18 @@ def callback():#這是一個觸發事件，當今天發生了什麼的時候，�
 def handle_message(event):
     msg = event.message.text
 #    reply = message_reply(msg, reply)
-    reply = '收到訊息'
+    rep = '收到訊息'
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text = reply))
+        TextSendMessage(text = rep))
 
-def message_reply(msg, reply):
+def message_reply(msg, rep):
     if msg in ['dice']:
-        reply = random.randint(1,6)
+        rep = random.randint(1,6)
     else:
-        reply = '請再說一次'
-    reply = str(reply)
-    return reply
+        rep = '請再說一次'
+    rep = str(rep)
+    return rep
 
 
 #如果我們今天這個程式（這個檔案）被啟動的時候，我們才執行這個程式
