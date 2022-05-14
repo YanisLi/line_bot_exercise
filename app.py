@@ -1,5 +1,7 @@
 from flask import Flask, request, abort
 
+import ramdom
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -38,10 +40,22 @@ def callback():#這是一個觸發事件，當今天發生了什麼的時候，�
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    reply = message_reply(msg, reply)
     s = '給我去洗頭'
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=s))
+        TextSendMessage(text=reply))
+
+def message_reply(msg, reply):
+    if msg in ['dice']:
+        reply = random.randint(1,6)
+    else:
+        reply = '請再說一次'
+    return reply
+
+
+
+
 
 #如果我們今天這個程式（這個檔案）被啟動的時候，我們才執行這個程式
 #而如果今天是別人調用這個程式的資料的時候，這個程式不會被啟動
