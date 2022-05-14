@@ -1,4 +1,0 @@
-Python==3.10.4
-line-bot-sdk==2.2.1
-Flask
-gunicorn
