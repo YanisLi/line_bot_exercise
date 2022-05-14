@@ -45,13 +45,13 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=s))
 
-# def message_reply(msg, rep):
-#     if msg in ['dice']:
-#         rep = random.randint(1,6)
-#     else:
-#         rep = '請再說一次'
-#     rep = str(rep)
-#     return rep
+def message_reply(msg, rep):
+    if msg in ['dice']:
+        rep = random.randint(1,6)
+    else:
+        rep = '請再說一次'
+    rep = str(rep)
+    return rep
 
 
 #如果我們今天這個程式（這個檔案）被啟動的時候，我們才執行這個程式
