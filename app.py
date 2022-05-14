@@ -37,11 +37,13 @@ def callback():#這是一個觸發事件，當今天發生了什麼的時候，�
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    msg = event.message.text
+    s = '給我去洗頭'
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=s))
 
 #如果我們今天這個程式（這個檔案）被啟動的時候，我們才執行這個程式
-#而如果今天是別人調用這個程式的資料的時候，這個程式不會被啟動 
+#而如果今天是別人調用這個程式的資料的時候，這個程式不會被啟動
 if __name__ == "__main__":
     app.run()
