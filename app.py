@@ -47,7 +47,7 @@ def handle_message(event):
 
 def dice_bot(msg, dice_rep):
     if msg in 'dice':
-        dice_rep = random.randint(1,6)
-        
+        dice_rep = msg
+
 if __name__ == "__main__":
     app.run()
