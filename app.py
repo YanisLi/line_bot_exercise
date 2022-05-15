@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+import random
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -38,9 +39,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    rep = '回覆' + str.random.randint(1,6)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text = rep))
 
 
 if __name__ == "__main__":
