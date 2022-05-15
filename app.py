@@ -40,7 +40,7 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     dice_rep = dice_bot(msg, dice_rep)
-    rep = '回覆' + dice_rep
+    rep = '回覆' , dice_rep
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text = rep))
@@ -48,6 +48,7 @@ def handle_message(event):
 def dice_bot(msg, dice_rep):
     if msg in 'dice':
         dice_rep = msg
+    return dice_rep
 
 if __name__ == "__main__":
     app.run()
